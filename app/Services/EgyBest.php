@@ -32,7 +32,7 @@ class EgyBest
     {
         $crawler = goutte::request('GET', self::$baseUrl . "/movie/{$slug}");
         $error = $crawler->filter('.msg_box.error')->text('no_error');
-        dd(self::$baseUrl . "/movie/{$slug}");
+        return $crawler->html();
         if ($error != "no_error") {
             return $error;
         }

@@ -24,7 +24,7 @@ Route::get('egybest/movie/{slug}', function ($slug) {
     $data = EgyBest::show($slug);
 
     if (is_string($data)) {
-        return response()->json(['error' => $th->getMessage()] , 404);
+        return response()->json(['error' => $data] , 404);
     }
 
     return response()->json(['data' => $data]);
