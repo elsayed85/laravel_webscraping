@@ -32,7 +32,7 @@ class EgyBest
     {
         $crawler = goutte::request('GET', self::$baseUrl . "/movie/{$slug}");
         $error = $crawler->filter('.msg_box.error')->text('no_error');
-        dd($crawler);
+
         if ($error != "no_error") {
             return $error;
         }
@@ -69,8 +69,6 @@ class EgyBest
 
             $movie->put("users_rating", $details->filter('.ItemRatingScore')->text('--'));
         });
-
-        return $movie;
 
         $movie->put("users_rating", $crawler->filter('.cpnt')->text('--'));
 
