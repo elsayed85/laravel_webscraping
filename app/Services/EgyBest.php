@@ -72,9 +72,9 @@ class EgyBest
 
         $movie->put("users_rating", $crawler->filter('.cpnt')->text('--'));
 
-        $movieStory = $crawler->filter('.full_movie')->nextAll()->eq(1);
-        $movie->put("story_title", $movieStory->filter('.pda:nth-child(2) strong')->text('--'));
-        $movie->put("story_description", str_replace("<strong>{$movie->get('story_title')}</strong><br>", "", $movieStory->filter('.pda:nth-child(2)')->html()));
+        // $movieStory = $crawler->filter('.full_movie')->nextAll()->eq(1);
+        // $movie->put("story_title", $movieStory->filter('.pda:nth-child(2) strong')->text('--'));
+        // $movie->put("story_description", str_replace("<strong>{$movie->get('story_title')}</strong><br>", "", $movieStory->filter('.pda:nth-child(2)')->html()));
 
         $movie->put("trailer_url", $crawler->filter('#yt_trailer div')->attr("url"));
 
